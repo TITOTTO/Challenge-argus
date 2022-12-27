@@ -4,7 +4,9 @@ require 'restaurant'
 require 'rider'
 
 describe DeliveryRouter do
-  let(:delivery_router) { DeliveryRouter.new([], [], [])} 
+  let(:riders) { [Rider.new(id: 1, speed: 10, x: 2, y: 0)] }
+  let(:restaurants) { [Restaurant.new(id: 1, cooking_time: 15, x: 0, y: 0)] }
+  let(:delivery_router) { DeliveryRouter.new(restaurants, [], riders)}
 
   describe "#add_order" do
     it 'increments orders' do
@@ -15,7 +17,7 @@ describe DeliveryRouter do
 
     it 'new order has proper syntax' do
       delivery_router.add_order(customer: 1, restaurant: 1)
-      expect(delivery_router.orders.last).to eq({:customer_id=>1, :restaurant_id=>1})
+      expect(delivery_router.orders.last).to eq({:customer_id=>1, :restaurant_id=>1, rider_id: 1})
     end
   end
 
