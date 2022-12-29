@@ -2,6 +2,7 @@ require 'delivery_router'
 require 'customer'
 require 'restaurant'
 require 'rider'
+require 'pry'
 
 describe DeliveryRouter do
   let(:riders) { [Rider.new(id: 1, speed: 10, x: 2, y: 0)] }
@@ -42,7 +43,7 @@ describe DeliveryRouter do
         Restaurant.new(:id => 3, :cooking_time => 15, :x => 0, :y => 0),
         Restaurant.new(:id => 4, :cooking_time => 35, :x => 5, :y => 5),
       ]
-      riders = [
+      @riders = [
       Rider.new(:id => 1, :speed => 10, :x => 2, :y => 0),
         Rider.new(:id => 2, :speed => 10, :x => 1, :y => 0),
       ]
